@@ -4,7 +4,7 @@ resource "aws_key_pair" "deployer" {
 
   tags = {
     Name = "Hello"
-    key = "value"
+    Team = "DevOps"
   }
 }
 
@@ -13,5 +13,6 @@ terraform {
     bucket = "kaizen-adileta"
     key    = "terraform.tfstate"
     region = "us-east-1"
+    use_lockfile = true
   }
 }
