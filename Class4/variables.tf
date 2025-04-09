@@ -1,14 +1,14 @@
-variable aws_key {
+variable "aws_key" {
   default = "hello-key"
-  type = string
+  type    = string
 }
 
-variable region {
+variable "region" {
   default = "us-east-2"
-  type = string
+  type    = string
 }
 
-variable port {
-    default = [22, 80]
-    type = list
+variable "port" {
+  default = [22, 80]
+  type    = list(any)
 }
