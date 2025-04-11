@@ -8,13 +8,15 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
+}
 
+resource null_resource hello {
     connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    private_key = file("~/.ssh/id_rsa")
-    host     = self.public_ip
-  }
+        type     = "ssh"
+        user     = "ec2-user"
+        private_key = file("~/.ssh/id_rsa")
+        host     = aws_instance.web.public_ip
+    }
 
 
   provisioner "remote-exec" {
