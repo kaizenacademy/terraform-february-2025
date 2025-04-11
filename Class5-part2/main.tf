@@ -18,7 +18,6 @@ resource null_resource hello {
         host     = aws_instance.web.public_ip
     }
 
-
   provisioner "remote-exec" {
     inline = [
         "sudo yum install httpd -y",
